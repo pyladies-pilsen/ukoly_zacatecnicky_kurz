@@ -1,0 +1,43 @@
+Cykly:
+------
+
+`(3b-22.3)0. Napište program, který vypíše prvních n Fibonacciho čísel:
+   Pro Fibonacciho čísla platí:
+      F0 = 0
+      F1 = 1
+      Fn = Fn-1 + Fn-2, pro n>1
+
+*1. Napište program, který vyhledá a vypíše všechna dokonalá čísla menší nebo rovná zadanému číslu.
+   Def(Dokonalé číslo) Přirozené číslo nazveme dokonalým pokud se rovná součtu svých dělitelů,
+                       včetně 1.
+                       Např.: 6 = 1 + 2 + 3
+
+
+`(3b-22.2)2. Napište program, který rozhodne, jestli je zadané číslo prvočíslo.
+
+3. Napište program, který vypíše všechna prvočísla menší nebo rovná zadanému číslu.
+*4. Napište program, který rozloží zadané číslo na součin prvočísel.
+    TIP nemusíte vyhledávat prvočísla.
+
+
+From Rossetacode:
+
+`(3b-21)R2: http://rosettacode.org/wiki/FizzBuzz
+    Napište program, který vípíše čísla od 1 do 100, avšak
+    * místo násobku tří napíše Fizz
+    * místo násobku pěti napíše Buzz
+    * místo násobku tří a pěti napíše FizzBuzz
+
+*R3: Napište program, který najde největšího společného dělitele dvou zadaných
+    přirozených čísel
+
+R4: http://rosettacode.org/wiki/Babbage_problem
+    Charles Babbage slíbil Adě Lovelace postavit první "počítač",
+    kromě toho, že jí chtěl udělat radost, ho zajímal i následující problém:
+
+    Jaké je nejmenší přirozené číslo jehož druhá mocnina končí číslicemi
+    269 696?
+
+    Napište, program, který toto číslo najde. Pozor, napište jej ale tak, aby mu
+    i pan Babbage, který v Pythonu nikdy neprogramoval, rozumněl
+    a uvěřil vám, že odpověď, kterou program dá, je správná.

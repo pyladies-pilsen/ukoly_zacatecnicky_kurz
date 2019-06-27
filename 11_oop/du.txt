@@ -1,0 +1,6 @@
+Třidy a objekty
+
+1.1 Vytvořte třidu Ctverec s jedním atributem strana a metodami obvod(), obsah() a
+rozdil_obsahu(jiny_ctverec), která vrátí rozdíl obsahů dvou čtverců - zadaného a toho
+jehož metodu voláme.
+

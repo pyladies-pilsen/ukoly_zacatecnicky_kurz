@@ -1,0 +1,1 @@
+print("{0}.format(r\'{0}\'))".format(r'print("{0}.format(r\'{0}\'))"'))

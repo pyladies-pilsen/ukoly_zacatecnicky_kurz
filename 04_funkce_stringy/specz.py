@@ -1,0 +1,6 @@
+print('--\N{LATIN SMALL LETTER L WITH STROKE}--')
+print('--\N{SECTION SIGN}--')
+print('--\N{PER MILLE SIGN}--')
+print('--\N{BLACK STAR}--')
+print('--\N{SNOWMAN}--')
+print('--\N{KATAKANA LETTER TU}--')

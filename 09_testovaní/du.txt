@@ -1,0 +1,7 @@
+Výjimky
+
+1. Napište program, který pro dvě zadaná čísla vrátí jejich podíl, dělení nulou ošetřete pomocí
+   "try: ... except " bloku. Jakou vyjímku musíte zachytávat?
+
+2. Napište program, který načte zadaný soubor a vypíše jeho obsah, ošetřete případy, kdy soubor nejde
+    otevřít pomocí "try: ... except " bloku. Jakou vyjímku musíte zachytávat?

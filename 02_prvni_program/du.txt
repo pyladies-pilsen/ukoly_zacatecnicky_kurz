@@ -1,0 +1,3 @@
+Dělitelnost
+
+1. Napište program, který pro dvě zadaná čísla, rozhodne, jestli je první dělitelem druhého.

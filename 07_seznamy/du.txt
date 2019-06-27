@@ -1,0 +1,15 @@
+Seznamy
+-------
+
+From Rossetacode:
+**R1: http://rosettacode.org/wiki/Pascal%27s_triangle
+    Na vstupu je přirozené číslo n, vypište Paskalův trojúhelník až do n-té řady.
+
+
+**R2: http://rosettacode.org/wiki/100_doors
+    Napište program, který vyřeší následující úlohu:
+    Na dlouhé chodbě je 100 dveří, všechny jsou na začátku zavřené. Při prvním průchodu
+    otočíme(zavřeme pokud byly otevřené/otevřeme pokud byly zavřené) všechny dveře, při
+    druhém průchodu otočíme pouze každé druhé dveře, při třetím průchodu každé třetí atd.
+    až do 100 průchodů, kdy otočíme pouze poslední dveře. Které dveře zůstanou na konci
+    otevřené? Vypište jejich pořadová čísla.

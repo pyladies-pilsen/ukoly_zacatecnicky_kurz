@@ -1,0 +1,9 @@
+Pandas
+------
+1. V souboru dotaznik.xls jsou odpovědi uživatelů na standardizovaný dotazník uživatelské spokojenosti. Každý uživatel
+    s anonymním ID vyplnil dotazník vícekrát, vyberte vždy první a poslední odpověď každého uživatele a rozdělte je do
+    DataFramu prvni_odpovedi a posledni_odpovedi.
+
+From rossetacode:
+R1: http://rosettacode.org/wiki/Pathological_floating_point_problems
+    Hezký příklad problémů konečné aritmetiky.

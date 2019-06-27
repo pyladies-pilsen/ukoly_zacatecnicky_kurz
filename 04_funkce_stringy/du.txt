@@ -1,0 +1,34 @@
+1. Funkce:
+----------
+
+Rekurze:
+**1.1 Napište program, který vykreslí kochovu křivku (použijte želví grafiku)
+**1.2 Napište program, který vyřeší problém Hanojských věží, na vstupu bude počet
+      disků umístněných na prvním sloupku zleva, cílem je přemístnit je všechny na
+      sloupek úplně vpravo.
+
+
+
+2. Řetězce:
+-----------
+*2.1 Napište program, který dostane na vstup libovolný řetězec a na výstupu vrátí četnost
+    písmen anglické abecedy v tomto řetězci.
+**2.1 Upravte program tak, aby vracel četnost všech znaků, na které v řetězci narazí
+
+2.2 Napište program, který v zadaném řetězci nahradí všechny mezery znakem '+' nebo '_',
+    můžete si vybrat.
+
+2.3 Napište program, který v zadaném řetězci zkontroluje spárování závorek, kontrolujte pouze
+    kulaté závorky '(' a ')', matematické operátory apod. můžete ignorovat
+    Např.: (6 + (3*)4) budeme považovat za správně uzávorkovaný
+
+2.4 Napište program, který na vstupu dostane větu (seznam slov oddělených mezerami)
+    a na výstupu obrátí pořadí písmen v každém jednom slově, pořadí slov však zachová. Úvodní
+    velké písmeno, tečku na konci věty a veškerou ostatní interpunkci můžete ignorovat.
+*2.4 upravte program tak, aby všechny interpunkční znaky zachovával na místě a první písmeno
+     výsledného řetězce bylo velké.
+
+***2.5 Napište program, který vypíše vlastní kód (nepoužívejte načítání souborů!)
+
+
+
