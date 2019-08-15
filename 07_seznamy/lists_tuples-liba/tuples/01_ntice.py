@@ -11,7 +11,7 @@ ntice_obci = 'Misov','Cicov','Borovno'
 ntice_pocet_obyvatel = 115, 182, 99, 5
 
 # Nepouzivaji zadne hranate [], slozene {} nebo jine zavorky, proste se hodnoty jen oddeli carkou
-#Ale bacha, kdyz predavame tuple jako argument nejake funkce!
+# Ale bacha, kdyz predavame tuple jako argument nejake funkce!
 
 def vypis_obce(ntice):
     for obec in ntice:

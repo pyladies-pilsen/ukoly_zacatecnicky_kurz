@@ -4,7 +4,7 @@ Slovníky
 
 8.1 Napište program, který přeloží zadaný řetězec do morseovy abecedy, tečku nahraďte slovem STOP,
     ostatní interpunkci ignorujte, slova oddělujte svislítkem '|'.
-    Morseova abeceda je :
+    Morseova abeceda je (rovnou v Pythonní slovníkové syntaxi ;-):
           
           {'0' : '-----',
            '1' : '.----',
