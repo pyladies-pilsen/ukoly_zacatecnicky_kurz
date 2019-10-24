@@ -9,5 +9,5 @@ for c in text:
         nhir += 1
     elif c in kat:
         nkat += 1
-print("V souboru bylo: \n \t {} znaku hiragany a \n \t {} znaku katakany".format(nhir, nkat))
-
+print("V souboru bylo: \n \t {} znaku hiragany " +
+      "a \n \t {} znaku katakany".format(nhir, nkat))
