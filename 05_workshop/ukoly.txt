@@ -1,0 +1,110 @@
+Opakovací příklady
+------------------
+Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
+
+0. První program
+    Z0 Napiš program, který nám popřeje dobré ráno.
+
+
+1. Proměnné
+    Z1 Napiš program, který spočítá a vypíše obvod a obsah krychle se
+    stranou a = 256 a kruhu o stejném poloměru. Číslo 256 se v kódu smí
+    objevit jen jednou! Místo pí staší použí hodnotu 3.14.
+
+    Z2 Napiš program, který se zeptá uživatele na číslo a vypíše jeho třetí mocninu.
+
+
+2. Větvení a porovnávání
+    Z1 Napiš program, který se zeptá uživatele na číslo a vypíše,
+    jestli bylo kladné nebo záporné. Nulu múže program ignorovat.
+
+    Z2 Napiš program, který se zeptá uživatele "Známe se?" a pokud uživatel
+    odpoví "ne", program se představí, jinak neudělá nic.
+
+    P1 Napiš program, který se zeptá uživatele na číslo a vypíše "Bingo!" pokud je
+    jeho třetí mocnina dělitelná třemi.
+
+
+3. Cykly
+    Z1 Napiš program, který vypíše čísla od 0 do 19.
+
+    Z2 Napiš program, který bude neustále vypipsovat "... a dál?".
+
+    P1 Napiš program, který sečte všechny násobky čísla 7 menší než 100.
+
+    P2 Napiš program, který se bude ptát uživatele na čísla, dokud nezadá "konec".
+    Poté program vypíše průměr všech zadaných čísel.
+
+    P3 Napiš program, který vypíše následující tabulku.
+        1 0 0 0
+        0 1 0 0
+        0 0 1 0
+        0 0 0 1
+
+    P3* Uprav program tak, aby se dala velikost tabuky snadno měnit.
+
+
+4. Funkce
+    Ke každé funkci napiš i krátký program, ve kterém ji použiješ a výsledek vypíšeš.
+
+    Z1 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte a výsledek vypíše.
+
+    Z2 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte a výsledek vrátí.
+
+    Z* Napiš funkci, která vypíše svůj první argument a druhý vrátí.
+
+    Z3 Napiš funkci, která pomoc želvy nakreslí čtverec se dvěma nohama, nějak takhle
+        ┌---┐
+        |   |
+        └---┘
+         └ └
+
+    P1 Napiš funkci, která bude mít jako argumenty dvě čísla `z` a `e` a vrátí `z`
+    umocněno na `e`, `e` musí být celé kladné číslo. Nepoužij operátor `**` ale
+    for cyklus.
+
+    P1* Doplň funkci o kontrolu jesli je `e` celé kladné číslo,
+    v takové případě vrátí funkce nulu.
+
+    P2 Pomocí želvy nakresli stonožku, použij dvounohé čtverce.  ┌ ┌
+                                                                 | |
+         ┌---┐ ┌---┐ ┌---┐ ┌---┐       ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐
+        <|   |-|   |-|   |-|   |- ... -|   |-|   |-|   |-|   |-|O O|
+         └---┘ └---┘ └---┘ └---┘       └---┘ └---┘ └---┘ └---┘ └-ˇ-┘
+          └ └   └ └   └ └   └ └         └ └   └ └   └ └   └ └
+
+5. Řetězce
+    Ke každé funkci napiš i krátký program, ve kterém ji použiješ a výsledek vypíšeš.
+
+    Z1 Napiš program, který se zeptá uživatele na řetězec znaků a vymění v něm všechna
+    písmena "s" za "f".
+
+    Z2 Napiš program, který vypíše "Flat is better than nested." do sloupečku:
+        F
+        l
+        a
+        .
+        .
+        .
+
+    P1 Napiš funkci, která vrátí True pokud jako argument dostala buď prázdný řetězec nebo
+    pokud zadaný řetězec obsahuje písmeno "Y" nebo "y".
+
+    P2 Napiš funkci, která dostane jako argument číslo a vrátí řetězec "Tvoje skóre je "
+    na jehož konec připojí dané číslo.
+
+    P3
+
+
+6. Soubory
+    Ke každé funkci napiš i krátký program, ve kterém ji použiješ a výsledek vypíšeš.
+
+    Z1 Napiš program, který načte textový soubor a výpíše jeho obsah.
+
+    Z2 Napiš program, který řekne uživateli, aby zadal cokoliv a zapíše to do souboru
+    vystup.txt.
+
+    P1 Napiš program, který se zeptá uživatele na jméno souboru, načte jeho obsah
+    a nahradí všechny znaky ";" (středník) znakem pro prázdný řádek "\n" a zapíše
+    výsledek zpět od souboru. Pokud soubor žádné ";" neobsahuje, program to oznámí.
+
