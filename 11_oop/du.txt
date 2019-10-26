@@ -4,3 +4,11 @@ Třidy a objekty
 rozdil_obsahu(jiny_ctverec), která vrátí rozdíl obsahů dvou čtverců - zadaného a toho
 jehož metodu voláme.
 
+1.2 Vytvořte třídu bicykl, která bude modelovat několik jednoduchých vlastností jízdního kola.
+Třída bude mít atributy: rychlost, predvod, pocet_prevodu a barva a metody:
+zvys_prevod -- zvýší převodp pokud to jde,
+sniz_prevod -- sníží převod pokud to jde,
+prerad(prevod) -- zmeni převod na zadaný převod, pokuto jde,
+slapni -- zvýší rychlost o zrvna zařazený převod,
+brzdi -- sniží rychlost o jedna,
+zastav -- bržděním sníží rychlost na nula.

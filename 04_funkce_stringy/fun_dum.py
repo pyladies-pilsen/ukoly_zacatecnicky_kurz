@@ -42,7 +42,7 @@ def nakresli_dum2(sirka, vyska):
     :return:
     """
 
-    from math import atan, tan, degrees
+    from math import atan, degrees
     from math import sqrt
     prepona = sqrt(sirka**2 + vyska**2)  # delka diagonaly a strany na střeše
     vs = vyska/sirka  # protilehlá ku přeponě

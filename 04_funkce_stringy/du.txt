@@ -13,6 +13,7 @@ Rekurze:
 -----------
 *2.1 Napište program, který dostane na vstup libovolný řetězec a na výstupu vrátí četnost
     písmen anglické abecedy v tomto řetězci.
+
 **2.1 Upravte program tak, aby vracel četnost všech znaků, na které v řetězci narazí
 
 2.2 Napište program, který v zadaném řetězci nahradí všechny mezery znakem '+' nebo '_',
@@ -25,6 +26,7 @@ Rekurze:
 2.4 Napište program, který na vstupu dostane větu (seznam slov oddělených mezerami)
     a na výstupu obrátí pořadí písmen v každém jednom slově, pořadí slov však zachová. Úvodní
     velké písmeno, tečku na konci věty a veškerou ostatní interpunkci můžete ignorovat.
+
 *2.4 upravte program tak, aby všechny interpunkční znaky zachovával na místě a první písmeno
      výsledného řetězce bylo velké.
 
