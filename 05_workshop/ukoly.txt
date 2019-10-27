@@ -9,14 +9,14 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
 1. Proměnné
     Z1 Napiš program, který spočítá a vypíše obvod a obsah krychle se
     stranou a = 256 a kruhu o stejném poloměru. Číslo 256 se v kódu smí
-    objevit jen jednou! Místo pí staší použí hodnotu 3.14.
+    objevit jen jednou! Místo pí stačí použí hodnotu 3.14.
 
     Z2 Napiš program, který se zeptá uživatele na číslo a vypíše jeho třetí mocninu.
 
 
 2. Větvení a porovnávání
     Z1 Napiš program, který se zeptá uživatele na číslo a vypíše,
-    jestli bylo kladné nebo záporné. Nulu múže program ignorovat.
+    jestli bylo kladné nebo záporné. Nulu může program ignorovat.
 
     Z2 Napiš program, který se zeptá uživatele "Známe se?" a pokud uživatel
     odpoví "ne", program se představí, jinak neudělá nic.
@@ -41,19 +41,19 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
         0 0 1 0
         0 0 0 1
 
-    P3* Uprav program tak, aby se dala velikost tabuky snadno měnit.
+    P3* Uprav program tak, aby se dala velikost tabulky snadno měnit.
 
 
 4. Funkce
     Ke každé funkci napiš i krátký program, ve kterém ji použiješ a výsledek vypíšeš.
 
-    Z1 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte a výsledek vypíše.
+    Z1 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte a výsledek VYPÍŠE.
 
-    Z2 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte a výsledek vrátí.
+    Z2 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte a výsledek VRÁTÍ.
 
     Z* Napiš funkci, která vypíše svůj první argument a druhý vrátí.
 
-    Z3 Napiš funkci, která pomoc želvy nakreslí čtverec se dvěma nohama, nějak takhle
+    Z3 Napiš funkci, která pomocí želvy nakreslí čtverec se dvěma nohama, nějak takhle
         ┌---┐
         |   |
         └---┘
@@ -64,14 +64,14 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
     for cyklus.
 
     P1* Doplň funkci o kontrolu jesli je `e` celé kladné číslo,
-    v takové případě vrátí funkce nulu.
+    v takovém případě vrátí funkce nulu.
 
-    P2 Pomocí želvy nakresli stonožku, použij dvounohé čtverce.  ┌ ┌
-                                                                 | |
-         ┌---┐ ┌---┐ ┌---┐ ┌---┐       ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐
-        <|   |-|   |-|   |-|   |- ... -|   |-|   |-|   |-|   |-|O O|
-         └---┘ └---┘ └---┘ └---┘       └---┘ └---┘ └---┘ └---┘ └-ˇ-┘
-          └ └   └ └   └ └   └ └         └ └   └ └   └ └   └ └
+    P2 Pomocí želvy nakresli stonožku, použij dvounohé čtverce.
+
+             ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐
+            <|   |-|   |-|   |-|   |-|   |-|   |-|   |-|   |- ...
+             └---┘ └---┘ └---┘ └---┘ └---┘ └---┘ └---┘ └---┘
+              └ └   └ └   └ └   └ └   └ └   └ └   └ └   └ └
 
 5. Řetězce
     Ke každé funkci napiš i krátký program, ve kterém ji použiješ a výsledek vypíšeš.
@@ -79,13 +79,16 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
     Z1 Napiš program, který se zeptá uživatele na řetězec znaků a vymění v něm všechna
     písmena "s" za "f".
 
-    Z2 Napiš program, který vypíše "Flat is better than nested." do sloupečku:
+    Z2 Napiš program, který vypíše text "Flat is better than nested." do sloupečku:
         F
         l
         a
         .
         .
         .
+    
+    Z3 Napiš program, který se zeptá nejprve na jméno a poté na příjmení uživatele a
+    poté vypíše jeho iniciály.
 
     P1 Napiš funkci, která vrátí True pokud jako argument dostala buď prázdný řetězec nebo
     pokud zadaný řetězec obsahuje písmeno "Y" nebo "y".
@@ -93,12 +96,8 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
     P2 Napiš funkci, která dostane jako argument číslo a vrátí řetězec "Tvoje skóre je "
     na jehož konec připojí dané číslo.
 
-    P3
-
 
 6. Soubory
-    Ke každé funkci napiš i krátký program, ve kterém ji použiješ a výsledek vypíšeš.
-
     Z1 Napiš program, který načte textový soubor a výpíše jeho obsah.
 
     Z2 Napiš program, který řekne uživateli, aby zadal cokoliv a zapíše to do souboru
@@ -108,3 +107,9 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
     a nahradí všechny znaky ";" (středník) znakem pro prázdný řádek "\n" a zapíše
     výsledek zpět od souboru. Pokud soubor žádné ";" neobsahuje, program to oznámí.
 
+    P2 Zkopíruj si dvounohý čtverec z úkolu 4Z3 a vypiš stonožu do souboru.     ┌ ┌
+                                                                                | |
+             ┌---┐  ┌---┐  ┌---┐  ┌---┐  ┌---┐  ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐
+        ... -|   | -|   | -|   | -|   | -|   | -|   |-|   |-|   |-|   |-|   |-|O O|
+             └---┘  └---┘  └---┘  └---┘  └---┘  └---┘ └---┘ └---┘ └---┘ └---┘ └-ˇ-┘
+              └ └    └ └    └ └    └ └    └ └    └ └   └ └   └ └   └ └   └ └
