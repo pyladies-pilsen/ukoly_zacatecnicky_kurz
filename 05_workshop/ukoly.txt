@@ -7,11 +7,12 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
 
 
 1. Proměnné
-    Z1 Napiš program, který spočítá a vypíše obvod a obsah krychle se
+    Z1 Napiš program, který spočítá a vypíše obvod a obsah čtverec se
     stranou a = 256 a kruhu o stejném poloměru. Číslo 256 se v kódu smí
     objevit jen jednou! Místo pí stačí použí hodnotu 3.14.
 
-    Z2 Napiš program, který se zeptá uživatele na číslo a vypíše jeho třetí mocninu.
+    Z2 Napiš program, který se zeptá uživatele na číslo a vypíše jeho třetí
+    mocninu.
 
 
 2. Větvení a porovnávání
@@ -21,8 +22,8 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
     Z2 Napiš program, který se zeptá uživatele "Známe se?" a pokud uživatel
     odpoví "ne", program se představí, jinak neudělá nic.
 
-    P1 Napiš program, který se zeptá uživatele na číslo a vypíše "Bingo!" pokud je
-    jeho třetí mocnina dělitelná třemi.
+    P1 Napiš program, který se zeptá uživatele na číslo a vypíše "Bingo!" pokud
+    je jeho třetí mocnina dělitelná třemi.
 
 
 3. Cykly
@@ -32,8 +33,8 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
 
     P1 Napiš program, který sečte všechny násobky čísla 7 menší než 100.
 
-    P2 Napiš program, který se bude ptát uživatele na čísla, dokud nezadá "konec".
-    Poté program vypíše průměr všech zadaných čísel.
+    P2 Napiš program, který se bude ptát uživatele na čísla, dokud nezadá
+    "konec". Poté program vypíše průměr všech zadaných čísel.
 
     P3 Napiš program, který vypíše následující tabulku.
         1 0 0 0
@@ -45,23 +46,26 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
 
 
 4. Funkce
-    Ke každé funkci napiš i krátký program, ve kterém ji použiješ a výsledek vypíšeš.
+    Ke každé funkci napiš i krátký program, který ji použije a výsledek vypíše.
 
-    Z1 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte a výsledek VYPÍŠE.
+    Z1 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte
+    a výsledek VYPÍŠE.
 
-    Z2 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte a výsledek VRÁTÍ.
+    Z2 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte
+    a výsledek VRÁTÍ.
 
     Z* Napiš funkci, která vypíše svůj první argument a druhý vrátí.
 
-    Z3 Napiš funkci, která pomocí želvy nakreslí čtverec se dvěma nohama, nějak takhle
+    Z3 Napiš funkci, která pomocí želvy nakreslí čtverec se dvěma nohama,
+    nějak takhle
         ┌---┐
         |   |
         └---┘
          └ └
 
-    P1 Napiš funkci, která bude mít jako argumenty dvě čísla `z` a `e` a vrátí `z`
-    umocněno na `e`, `e` musí být celé kladné číslo. Nepoužij operátor `**` ale
-    for cyklus.
+    P1 Napiš funkci, která bude mít jako argumenty dvě čísla `z` a `e` a vrátí
+    `z` umocněno na `e`, `e` musí být celé kladné číslo. Nepoužij operátor `**`
+    ale for cyklus.
 
     P1* Doplň funkci o kontrolu jesli je `e` celé kladné číslo,
     v takovém případě vrátí funkce nulu.
@@ -74,12 +78,14 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
               └ └   └ └   └ └   └ └   └ └   └ └   └ └   └ └
 
 5. Řetězce
-    Ke každé funkci napiš i krátký program, ve kterém ji použiješ a výsledek vypíšeš.
+    Ke každé funkci napiš i krátký program, který ji použije a výsledek vypíše.
 
-    Z1 Napiš program, který se zeptá uživatele na řetězec znaků a vymění v něm všechna
-    písmena "s" za "f".
 
-    Z2 Napiš program, který vypíše text "Flat is better than nested." do sloupečku:
+    Z1 Napiš program, který se zeptá uživatele na řetězec znaků a vymění v něm
+    všechna písmena "s" za "f".
+
+    Z2 Napiš program, který vypíše text "Flat is better than nested." do
+    sloupečku:
         F
         l
         a
@@ -87,29 +93,31 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
         .
         .
     
-    Z3 Napiš program, který se zeptá nejprve na jméno a poté na příjmení uživatele a
-    poté vypíše jeho iniciály.
+    Z3 Napiš program, který se zeptá nejprve na jméno a poté na příjmení
+    uživatele a poté vypíše jeho iniciály.
 
-    P1 Napiš funkci, která vrátí True pokud jako argument dostala buď prázdný řetězec nebo
-    pokud zadaný řetězec obsahuje písmeno "Y" nebo "y".
+    P1 Napiš funkci, která vrátí True pokud jako argument dostala buď prázdný
+    řetězec nebo pokud zadaný řetězec obsahuje písmeno "Y" nebo "y". Jinak vrátí
+    False.
 
-    P2 Napiš funkci, která dostane jako argument číslo a vrátí řetězec "Tvoje skóre je "
-    na jehož konec připojí dané číslo.
+    P2 Napiš funkci, která dostane jako argument číslo a vrátí řetězec
+    "Tvoje skóre je " na jehož konec připojí dané číslo.
 
 
 6. Soubory
     Z1 Napiš program, který načte textový soubor a výpíše jeho obsah.
 
-    Z2 Napiš program, který řekne uživateli, aby zadal cokoliv a zapíše to do souboru
-    vystup.txt.
+    Z2 Napiš program, který řekne uživateli, aby zadal cokoliv a zapíše to do
+    souboru vystup.txt.
 
-    P1 Napiš program, který se zeptá uživatele na jméno souboru, načte jeho obsah
-    a nahradí všechny znaky ";" (středník) znakem pro prázdný řádek "\n" a zapíše
-    výsledek zpět od souboru. Pokud soubor žádné ";" neobsahuje, program to oznámí.
+    P1 Napiš program, který se zeptá uživatele na jméno souboru, načte jeho
+    obsah a nahradí všechny znaky ";" (středník) znakem pro prázdný řádek "\n"
+    a zapíše výsledek zpět od souboru. Pokud soubor žádné ";" neobsahuje,
+    program to oznámí.
 
-    P2 Zkopíruj si dvounohý čtverec z úkolu 4Z3 a vypiš stonožu do souboru.     ┌ ┌
-                                                                                | |
-             ┌---┐  ┌---┐  ┌---┐  ┌---┐  ┌---┐  ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐
-        ... -|   | -|   | -|   | -|   | -|   | -|   |-|   |-|   |-|   |-|   |-|O O|
-             └---┘  └---┘  └---┘  └---┘  └---┘  └---┘ └---┘ └---┘ └---┘ └---┘ └-ˇ-┘
-              └ └    └ └    └ └    └ └    └ └    └ └   └ └   └ └   └ └   └ └
+    P2 Zkopíruj si dvounohý čtverec z úkolu 4Z3 a vypiš stonožu do souboru.  ┌ ┌
+                                                                             | |
+         ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐
+    ... -|   |-|   |-|   |-|   |-|   |-|   |-|   |-|   |-|   |-|   |-|   |-|O O|
+         └---┘ └---┘ └---┘ └---┘ └---┘ └---┘ └---┘ └---┘ └---┘ └---┘ └---┘ └-ˇ-┘
+          └ └   └ └   └ └   └ └   └ └   └ └   └ └   └ └   └ └   └ └   └ └
