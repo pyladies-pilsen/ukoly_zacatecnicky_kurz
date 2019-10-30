@@ -1,6 +1,6 @@
 # Řešení opakovacích příkladů
 # ---------------------------
-# Soubor sice jde spustit jako, ale nedoporučuji to, prohlédni si řešení, pokud
+# Soubor sice jde spustit, ale nedoporučuji to, prohlédni si řešení, pokud
 # chceš nějaké vyzkoušet raději si ho zkopíruj. Zadání je v komentářích
 # začinajících `#`, komentře k řešení jsou v trojitých uvozovkách: """
 #
@@ -12,7 +12,7 @@ print("Dobré ráno, PyLaides!")
 # 1. Proměnné
 #     Z1 Napiš program, který spočítá a vypíše obvod a obsah čtverec se
 #     stranou a = 256 a kruhu o stejném poloměru. Číslo 256 se v kódu smí
-#     objevit jen jednou! Místo pí stačí použí hodnotu 3.14.
+#     objevit jen jednou! Místo pí stačí použít hodnotu 3.14.
 
 a = 256
 print("Obvod krychle o straně", a, "je", 256 * 4)
@@ -72,14 +72,14 @@ soucet = 0
 for i in range(0, 100):
     if i % 7 == 0:
         soucet = soucet + 7
-print("Součet: ", soucet)
+print("Součet:", soucet)
 
 """nebo optimalizovaná verze"""
 
 soucet = 0
 for i in range(0, 100, 7):
     soucet = soucet + 7
-print("Součet: ", soucet)
+print("Součet:", soucet)
 
 #     P2 Napiš program, který se bude ptát uživatele na čísla, dokud nezadá
 #     "konec". Poté program vypíše průměr všech zadaných čísel.
