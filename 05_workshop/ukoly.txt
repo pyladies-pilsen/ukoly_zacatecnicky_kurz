@@ -9,7 +9,7 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
 1. Proměnné
     Z1 Napiš program, který spočítá a vypíše obvod a obsah čtverec se
     stranou a = 256 a kruhu o stejném poloměru. Číslo 256 se v kódu smí
-    objevit jen jednou! Místo pí stačí použí hodnotu 3.14.
+    objevit jen jednou! Místo pí stačí použít hodnotu 3.14.
 
     Z2 Napiš program, který se zeptá uživatele na číslo a vypíše jeho třetí
     mocninu.
