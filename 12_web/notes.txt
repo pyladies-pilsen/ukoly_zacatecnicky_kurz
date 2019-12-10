@@ -1,0 +1,12 @@
+https://www.cinemacity.cz/cinemas/plzen/
+
+section "light quickbook-section"
+section "quickbook-component"
+section "container-fluid qb qb-by-cinema"
+
+Tabulka filmů: "qb-list-by-list"
+Řádky v tabulce: div "row movie-row first-movie-row", "row movie-row"
+Položky v řádku: "col-xs-9 qb-movie-details"::"qb-movie-info"
+                 "col-xs-12 col-sm-7 col-md-8 events"::
+                 "qb-movie-info-column col-xs-6"::
+                 "qb-movie-info-column col-xs-6"::"btn btn-sm btn-primary"
