@@ -7,8 +7,7 @@ from requests_html import HTMLSession
 from typing import List
 
 
-def stahni_data_filmu(day: int = 11,
-                      month: int = 12) -> List[str, str, str, List[str]]:
+def stahni_data_filmu(day=11, month=12):
     """
     Vrátí seznam filmů promítaných v daný den a měsíc,
     každý film je reprezentován seznameme, který obsahuje:
