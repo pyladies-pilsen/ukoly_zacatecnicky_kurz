@@ -1,3 +1,0 @@
-pip install requests_html
-pip install requests_html
-pip install -U "urllib3<1.25"
