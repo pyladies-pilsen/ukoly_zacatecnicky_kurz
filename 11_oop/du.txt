@@ -12,3 +12,14 @@ prerad(prevod) -- zmeni převod na zadaný převod, pokuto jde,
 slapni -- zvýší rychlost o zrvna zařazený převod,
 brzdi -- sniží rychlost o jedna,
 zastav -- bržděním sníží rychlost na nula.
+
+1.3 Vytvořte třídu Fotoaparát s následujícími atributy a metodami, implementační
+detaily jsou na vás, hvězdičkou jsou označeny nepovinné části:
+    Atributy:
+        počet snímků na filmu: {36}
+        číslo aktuálního snímku: int
+        *film: List[str]
+    Metody:
+        natáhni - posune na další snímek, umožní zmáčknutí spouště
+        zmáčnki spoušť - funguje pouze po natažení, udělá "Cvak!"
+                       * připojí k filmu libovolný snímek

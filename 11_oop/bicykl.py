@@ -35,7 +35,6 @@ class Bicykl:
             print("Takovy prevod nejde zaradit")
             return False
 
-
     def slapni(self):
         self.rychlost += self.prevod
 
@@ -46,5 +45,5 @@ class Bicykl:
             print("Stojim")
 
     def zastav(self):
-        while self.rychlost >= 0:
+        while self.rychlost > 0:
             self.brzdi()

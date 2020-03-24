@@ -40,9 +40,9 @@ def is_prime(N):
 
 # print(is_prime(int(input("Zadejte N: "))))
 
-ispf = (lambda N: N == 2 if (N == 2) or (N == 1) else reduce(and_,
-                                                         map(lambda x: N % x != 0,
-                                                             cons(2, range(3, int(ceil(sqrt(N))+1), 2)))))
+ispf = (lambda N: N == 2 if N < 3 else reduce(and_,
+                                             map(lambda x: N % x != 0,
+                                                 cons(2, range(3, int(ceil(sqrt(N))+1), 2)))))
 
 
 def fib(N):
