@@ -18,8 +18,8 @@ from watchdog.events import PatternMatchingEventHandler
 
 class MyGist:
     def __init__(self, name, description, content,
-                 username="zitkat",
-                 api_token="fc0a498c28661417afc676bf57cf3fb7618ec38f"):
+                 username="",
+                 api_token=""):
         self.name = name
         self.description = description
         self.content = content
