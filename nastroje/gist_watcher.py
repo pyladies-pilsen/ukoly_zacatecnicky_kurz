@@ -2,7 +2,7 @@
 This script watches specified file and uploads changes to gist
 """
 
-__author_ = "Tomáš Zítka, tozitka@gmail.com"
+__author__ = "Tomáš Zítka, tozitka@gmail.com"
 import os
 import sys
 from os.path import join as pjoin
@@ -73,8 +73,10 @@ parser = argparse.ArgumentParser(
     epilog='(c) 2020 by T. Zitka , tozitka@gmail.com')
 
 parser.add_argument("file", help="Path to watched file")
-parser.add_argument("-n", "--name", help="Name of the Gist, if not provided, name of file is used")
-parser.add_argument("-d", "--description", help="Description of the Gist, if not provided deafult is generated")
+parser.add_argument("-n", "--name",
+                    help="Name of the Gist, if not provided, name of file is used")
+parser.add_argument("-d", "--description",
+                    help="Description of the Gist, if not provided deafult is generated")
 
 
 def main(argv):
@@ -91,7 +93,8 @@ def main(argv):
         name = args.name
 
     if args.description is None:
-        desc = "Code streamed from " + path.name + " started on " + str(datetime.now())
+        desc = "Code streamed from " + path.name + " started on " + \
+               str(datetime.now())
 
     if path.exists() and path.is_file():
         with open(path, mode="r", encoding="utf-8") as f:

@@ -3,6 +3,7 @@
 domaci_zvirata = ["kráva", "pes", "kocka", "králík", "had", "andulka"]
 domaci_zvirata2 = ["kráva", "pes", "lachtan", "králík", "had", "andulka", "tygr"]
 
+
 def vytvor_seznamy(s1, s2):
 
     s1ms2 = []

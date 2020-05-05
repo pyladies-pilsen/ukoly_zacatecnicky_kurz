@@ -68,7 +68,7 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
     ale for cyklus.
 
     P1* Doplň funkci o kontrolu jesli je `e` celé kladné číslo,
-    v takovém případě vrátí funkce nulu.
+    v opačném případě vrátí funkce nulu.
 
     P2 Pomocí želvy nakresli stonožku, použij dvounohé čtverce.
 
@@ -113,7 +113,7 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
     P1 Napiš program, který se zeptá uživatele na jméno souboru, načte jeho
     obsah a nahradí všechny znaky ";" (středník) znakem pro prázdný řádek "\n"
     a zapíše výsledek zpět od souboru. Pokud soubor žádné ";" neobsahuje,
-    program to oznámí.
+    program to oznámí a se souborem nic neudělá.
 
     P2 Zkopíruj si dvounohý čtverec z úkolu 4Z3 a vypiš stonožu do souboru.  ┌ ┌
                                                                              | |

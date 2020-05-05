@@ -1,0 +1,1 @@
+Stručné zadání je v ld_data.xlsx

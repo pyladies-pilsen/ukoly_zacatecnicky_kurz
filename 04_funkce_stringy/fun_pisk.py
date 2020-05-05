@@ -24,7 +24,7 @@ def vyhodnot(hra):
 
 def tahni(hra, cislo_policka, symbol):
     """
-    Zapíše symbol na pozici cislo_policka v řetězci hra,
+    Zapíše symbol na pozici cislo_policka v řetězci spust_hru,
     vrátí nový řetězec
     :param hra:
     :param cislo_policka:

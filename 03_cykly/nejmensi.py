@@ -1,11 +1,7 @@
 """
-Určite nejmenší číslo z n zadaných,
-volá pdb.set_trace() - ukázka debugování
+Určete nejmenší číslo z n zadaných.
 """
 
-import pdb
-
-pdb.set_trace()
 n = int(input("Zadejte pocet cisel: "))
 
 

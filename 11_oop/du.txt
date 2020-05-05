@@ -4,8 +4,9 @@ Třidy a objekty
 rozdil_obsahu(jiny_ctverec), která vrátí rozdíl obsahů dvou čtverců - zadaného a toho
 jehož metodu voláme.
 
-1.2 Vytvořte třídu bicykl, která bude modelovat několik jednoduchých vlastností jízdního kola.
-Třída bude mít atributy: rychlost, predvod, pocet_prevodu a barva a metody:
+1.2 Vytvořte třídu bicykl, která bude modelovat několik jednoduchých vlastností
+jízdního kola. Třída bude mít atributy: rychlost, predvod, pocet_prevodu a barva
+a metody:
 zvys_prevod -- zvýší převodp pokud to jde,
 sniz_prevod -- sníží převod pokud to jde,
 prerad(prevod) -- zmeni převod na zadaný převod, pokuto jde,
@@ -15,11 +16,12 @@ zastav -- bržděním sníží rychlost na nula.
 
 1.3 Vytvořte třídu Fotoaparát s následujícími atributy a metodami, implementační
 detaily jsou na vás, hvězdičkou jsou označeny nepovinné části:
-    Atributy:
-        počet snímků na filmu: {36}
+    Atributy (data):
         číslo aktuálního snímku: int
+        *počet políček na filmu: {36}
         *film: List[str]
     Metody:
         natáhni - posune na další snímek, umožní zmáčknutí spouště
+                * funguje pouze pokud je na filmu ještě volné políčko
         zmáčnki spoušť - funguje pouze po natažení, udělá "Cvak!"
                        * připojí k filmu libovolný snímek

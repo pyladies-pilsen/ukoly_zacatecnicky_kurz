@@ -1,5 +1,8 @@
-Odkazy PyLadies Web scraping workshop
--------------------------------------
+Z webu CinemaCity stáhněte data o promítaných filmech v Plzni a zobrazte je v
+tabulce jednoduchém html.
+
+Odkazy
+------
 
 CinemaCity webové stránky
 https://www.cinemacity.cz/cinemas/plzen/1054#/buy-tickets-by-cinema?in-cinema=1054&at=2019-12-11&view-mode=list

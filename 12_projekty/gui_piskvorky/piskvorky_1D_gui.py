@@ -1,42 +1,37 @@
 """
 Ukázkový program pro tvorbu GUI k 1D piškvorkám v Tkinteru
-
-__author__    = u"Filip Vaculik (mintaka@post.cz)"
-__version__   = u"Revision: 0.1"
-__date__      = u"Date: 2019/05/08 00:46:15"
-__copyright__ = u"Copyright (C) 2019 PyLadies"
-__license__   = u"GPL 3"
-
-TODO:
-Provázání na obsluhu hry.
-Předání tahu hráče.
-Ošetření správnosti tahu hráče.
-Zobrazení informací v případě neplatného tahu hráče.
-Zobrazení tahu počítače.
-Oznámení o výsledku hry.
 """
 
 from tkinter import Tk, ttk, LEFT, Frame, StringVar
+from oop_piskvorky_1D import Hra_piskvorek1D
+
 
 # seznam vygenerovaných tlačítek představujících herní pole
 buttons_hraciho_pole = []
+# vnitřní reprezentace hry
+piskvorky = Hra_piskvorek1D(10)
+
 
 def priprava_hraciho_pole():
     """
-    Pokud existují, smaže tlačítka vyčistí seznam tlačítek z předchozí hry.
-    Spouští generování tlačítek.
+    Pokud existují, smaže tlačítka, vyčistí seznam tlačítek z předchozí hry,
+    vytvoří novou vnitřní reprezentaci hry a spustí generování tlačítek.
     """
-    global buttons_hraciho_pole
     print("Přebírá textové zadání velikosti: ", velikost_hry.get())
+
     velikost_hry_int = int(velikost_hry.get())
+    piskvorky.nova_hra(velikost_hry_int)
+
     # TODO: ošetřit vhodný rozsah herního pole
     for button in buttons_hraciho_pole:
         button.destroy()
-    buttons_hraciho_pole = []
+    buttons_hraciho_pole.clear()
+
     generovani_tlacitek_hraciho_pole(velikost_hry_int)
     zprava.set("Klikněte na pole, na které chce hrát.")
 
-def generovani_tlacitek_hraciho_pole(velikost_hry_int):
+
+def generovani_tlacitek_hraciho_pole( velikost_hry_int):
     """
     Dle zadání uživatele v textovém poli, generuje tlačítka představující
     herní pole.
@@ -48,12 +43,35 @@ def generovani_tlacitek_hraciho_pole(velikost_hry_int):
         button_gen.pack(padx=2, pady=50, side=LEFT)
         buttons_hraciho_pole.append(button_gen)
 
-def obsluha_tahu_hrace(pozice):
+
+def obsluha_tahu_hrace( pozice):
     """
-    Tlačítko, na které háč kliknul bude pojmenováno symbolem "X".
+    Obsahuje celý mechanismus hry piskvorek
     """
-    buttons_hraciho_pole[pozice].config(text="X")
     print("Hráč kliknul na tlačítko: ", pozice)
+
+    # v pripade ze uz se neda hrat nepokracujeme dale do funkce
+    if piskvorky.vyhodnot() != "-":
+        return
+
+    # dale stejne jako v textové verzi, misto print mame zpravu v okne
+    chyba = piskvorky.tah_hrace(pozice)
+
+    if chyba is not None:
+        zprava.set(chyba)
+        return
+
+    buttons_hraciho_pole[pozice].config(text="X")
+    if piskvorky.vyhodnot() != "-":
+        # vysledek vypiseme hned, pozdeji k tomu neni prilezitost
+        zprava.set(piskvorky.zpravy[piskvorky.vyhodnot()])
+        return
+
+
+    buttons_hraciho_pole[piskvorky.tah_pocitace()].config(text="O")
+    if piskvorky.vyhodnot() != "-":
+        zprava.set(piskvorky.zpravy[piskvorky.vyhodnot()])
+
 
 # vytvoření hlavního okna
 root = Tk()
@@ -68,8 +86,10 @@ frame_ovladani.pack()
 frame_hraci_pole = Frame(root)
 frame_hraci_pole.pack()
 
-# tlačíko zahájení nové hry
-button = ttk.Button(frame_ovladani, text="Nová hra", command=priprava_hraciho_pole)
+# tlačíko zahájení nové hry, funkce predana jako argument command
+# je zavolana pri kliknuti na tlacitko
+button = ttk.Button(frame_ovladani, text="Nová spust_hru",
+                    command=priprava_hraciho_pole)
 button.pack(side=LEFT, padx=20)
 
 # popisek pro textového pole
@@ -77,9 +97,9 @@ label = ttk.Label(frame_ovladani, text="Velikost hry")
 label.pack(side=LEFT)
 
 # textové pole pro zadání, jak velké bude hrací pole
-velikost_hry = StringVar() # promenná ve které bude vložen vstup z textového pole
-entry = ttk.Entry(frame_ovladani,  width=3, textvariable=velikost_hry)
-velikost_hry.set("7") # výchozí hodnota
+velikost_hry = StringVar()  # promenná ve které bude vložen vstup z textového pole
+entry = ttk.Entry(frame_ovladani, width=3, textvariable=velikost_hry)
+velikost_hry.set("7")  # výchozí hodnota
 entry.pack(side=LEFT)
 
 # popisek ve kterém budou zprávy hry pro uživatele
@@ -94,5 +114,5 @@ button.pack(side=LEFT, padx=20)
 
 priprava_hraciho_pole()
 
-# smyčka programu, aby program po spuštění hned neskončil
+# smyčka programu, aby program po spuštění hned neskončil, misto while
 root.mainloop()

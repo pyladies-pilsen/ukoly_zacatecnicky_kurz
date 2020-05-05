@@ -10,7 +10,7 @@ from typing import List
 def stahni_data_filmu(day=11, month=12):
     """
     Vrátí seznam filmů promítaných v daný den a měsíc,
-    každý film je reprezentován seznameme, který obsahuje:
+    každý film je reprezentován seznamem, který obsahuje:
     [jméno filmu, informace o filmu, informace o promítání, [časy promítání]]
     """
     mode = "list"
@@ -24,12 +24,14 @@ def stahni_data_filmu(day=11, month=12):
     day_url = "at=2019-{month}-{day}".format(day=day, month=month)
     view_mode_url = "view-mode={mode}".format(mode=mode)
 
+    # vytvoříme sezení, přes které budeme stahovat data
     sezeni = HTMLSession()
 
     # spojíme části adresy a vyžádáme si stažení stránky
     stranka = sezeni.get("&".join([base_url, day_url, view_mode_url]))
 
-    # vynutíme zpracování stránky, aby se objevila všechna data
+    # vynutíme zpracování stránky, aby se objevila všechna data, proto potřebujeme
+    # requests_html a nestačí obyčejné requests
     stranka.html.render()
 
     # vyhledáme všechny řádky obsahující informace o filmech
@@ -41,7 +43,7 @@ def stahni_data_filmu(day=11, month=12):
         film_radek_list = film_radek.text.split("\n")
         nazev = film_radek_list[0]
         info_f = film_radek_list[1]
-        #  vymaže znaky xa0, což je nedělitelná mezera a znaky •
+        #  vymaže znaky xa0, což je nedělitelná mezera a znak "•"
         info_p = film_radek_list[2].replace("\xa0", "").replace("•", "")
 
         casy = film_radek_list[3]
