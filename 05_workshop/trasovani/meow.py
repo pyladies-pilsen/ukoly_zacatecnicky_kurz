@@ -1,0 +1,9 @@
+UNITE = 2
+UNITED = 0
+KITTENS_OF_THE_WORLD = 13
+
+for KITTEN in range(KITTENS_OF_THE_WORLD):
+    UNITED = UNITED + UNITE * KITTEN
+
+print("meow")
+print(UNITED)
