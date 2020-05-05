@@ -1,0 +1,11 @@
+Literatura
+----------
+Fallis, A. (2013). Fluent Python. http://doi.org/10.1017/CBO9781107415324.004
+https://knihy.abz.cz/prodej/ponorme-se-do-python-u-3
+http://www.computerpress.cz/python-3/
+
+
+Editory apod.
+------------
+http://www.pythontutor.com/visualize.html#mode=edit
+https://codewith.mu/

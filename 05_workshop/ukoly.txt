@@ -48,13 +48,13 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
 4. Funkce
     Ke každé funkci napiš i krátký program, který ji použije a výsledek vypíše.
 
-    Z1 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte
+    Z1 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte,
     a výsledek VYPÍŠE.
 
-    Z2 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte
+    Z2 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte,
     a výsledek VRÁTÍ.
 
-    Z* Napiš funkci, která vypíše svůj první argument a druhý vrátí.
+    Z* Napiš funkci, která bude mít dva argumenty a svůj první argument vypíše a druhý vrátí.
 
     Z3 Napiš funkci, která pomocí želvy nakreslí čtverec se dvěma nohama,
     nějak takhle

@@ -26,7 +26,8 @@ class MyGist:
         self.gist_connection = Simplegist(
                     username=username,
                     api_token=api_token)
-        gist_info = self.gist_connection.create(name=self.name,
+        gist_info = self.gist_connection.create(
+                    name=self.name,
                     description=self.description,
                     public=True,
                     content=self.content)
@@ -58,7 +59,7 @@ class GistUpdater(PatternMatchingEventHandler):
         self.last_modified = datetime.now()
 
     def on_any_event(self, event):
-        if datetime.now() - self.last_modified < timedelta(seconds=10):
+        if datetime.now() - self.last_modified < timedelta(seconds=2):
             return
         with open(event.src_path, mode="r", encoding="utf-8") as f:
             content = f.read()
@@ -96,7 +97,6 @@ def main(argv):
         with open(path, mode="r", encoding="utf-8") as f:
             contents = f.read()
 
-    gist = "gg"
     gist = MyGist(name=name, description=desc, content=contents)
     print("Created Gist at url " + gist.url)
     print("Name:", name)
