@@ -26,7 +26,7 @@ print("\n".join(map("".join, map(lambda y: map(lambda x: " {0}".format(y*x), ran
 
 print("".join(map(lambda y: "".join(map(lambda x: "x", range(y))) + "\n", range(1, 5))))
 
-print(reduce(mul, range(1, int(input("Zadejte cislo: "))+1)))
+print(reduce(mul, range(1, int(input("Zadejte cislo: ")) + 1)))
 
 
 def is_prime(N):
@@ -71,6 +71,8 @@ fibfn = (lambda N: list(reversed(nth(N, iterate(lambda l: list(cons(first(l) + s
 
 zvirata = ["pes", "kocka", "králík", "had"]
 len5 = (lambda l: list((filter(lambda z: len(z) < 5, l))))
+lenl5 = [zviratko for zviratko in zvirata if len(zviratko) < 5]
+
 startk = (lambda l: list((filter(lambda z: z[0] == 'k', l))))
 isnz = (lambda s: s in zvirata)
 
@@ -80,6 +82,7 @@ isnz = (lambda s: s in zvirata)
 # print("{0}.format(r\'{0}\'))".format(r'print("{0}.format(r\'{0}\'))"'))
 
 seznam = nth(18, iterate(lambda l: list(range(5)) + [l], [5]))
+
 seznam = [5, 3, 3, 3, 3]
 seznam.append(seznam)
 print(seznam[5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][5][0] == 5)
