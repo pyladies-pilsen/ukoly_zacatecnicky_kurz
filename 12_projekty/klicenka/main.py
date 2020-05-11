@@ -1,9 +1,18 @@
+import base64
+
 import tkinter as tk
 from tkinter import ttk, StringVar
 from tkinter import LEFT, NO, DISABLED, NORMAL
 
+from cryptography.fernet import Fernet, InvalidToken
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+
 
 class MainWindow(tk.Frame):
+
+    zakodovany_soubor = "super_secure.tjn"
 
     def __init__(self, parent):
         super().__init__(parent)
@@ -14,7 +23,9 @@ class MainWindow(tk.Frame):
         self.entry_width = 30
         self.zamikatelna_tlacitka = []
 
+        self.parent.protocol("WM_DELETE_WINDOW", self.uloz_zaznamy)
         self.create_widgets()
+        self.nacti_zaznamy()
 
     def create_widgets(self):
         self.label_jmeno = tk.Label(text="Zadejte hlavní heslo (klíč)",
@@ -23,15 +34,15 @@ class MainWindow(tk.Frame):
         self.frame_ovladani = tk.Frame()
         self.frame_ovladani.pack()
 
-        self.master_klic = StringVar()
-        self.master_klic.set(10*"-")
-        self.entry_master_klic = ttk.Entry(self.frame_ovladani,
-                                           width=self.entry_width,
-                                           textvariable=self.master_klic)
+        self.master_heslo = StringVar()
+        self.master_heslo.set("")
+        self.entry_master_heslo = ttk.Entry(self.frame_ovladani,
+                                            width=self.entry_width,
+                                            textvariable=self.master_heslo)
         self.unlock_button = ttk.Button(self.frame_ovladani,
                                         text="Odemknout",
                                         command=self.odezamkni_klicenku)
-        self.entry_master_klic.pack(side=LEFT)
+        self.entry_master_heslo.pack(side=LEFT)
         self.unlock_button.pack(side=LEFT)
 
         self.frame_zaznam = tk.Frame()
@@ -103,19 +114,37 @@ class MainWindow(tk.Frame):
             self.odemceno = not self.odemceno
             self.odezamkni_tlacitka(DISABLED)
             self.zakoduj_zaznamy()
+            self.master_heslo.set("")
+            self.entry_master_heslo.config(state=NORMAL)
         else:
+            self.priprav_klic()
+            try:
+                self.odkoduj_zaznamy()
+            except InvalidToken:
+                return
             self.unlock_button.config(text="Zamknout")
             self.odemceno = not self.odemceno
             self.odezamkni_tlacitka(NORMAL)
-            self.odkoduj_zaznamy()
 
-        print(self.master_klic.get())
+            self.entry_master_heslo.config(state=DISABLED)
 
-    def get_zaznamy(self):
-        for ii in self.tree_zaznamy.get_children():
-            yield ii
+
+    def priprav_klic(self):
+        psswd = self.master_heslo.get().encode()
+        salt = b"/*-*/"
+        kdf = PBKDF2HMAC(
+            algorithm=hashes.SHA256(),
+            length=32,
+            salt=salt,
+            iterations=100000,
+            backend=default_backend()
+        )
+        self.klic = base64.urlsafe_b64encode(kdf.derive(psswd))
+        print(self.klic)
 
     def zakoduj_zaznamy(self):
+
+        f = Fernet(self.klic)
         for ii in self.tree_zaznamy.get_children():
             # nasledujici radka odhaluje bug v tkinter, values jsou "tajne"
             # konvertovany z řetězců na čísla
@@ -124,16 +153,43 @@ class MainWindow(tk.Frame):
 
             # nasledujici radka spoleha na jiny bug, kvuli kteremu konverze nenastane
             stranka, jmeno, heslo = self.tree_zaznamy.item(ii, option="values")
-            self.tree_zaznamy.item(ii, values=(stranka, jmeno, heslo + "5"))
+
+            self.tree_zaznamy.item(ii, values=(f.encrypt(stranka.encode()).decode("utf-8"),
+                                               f.encrypt(jmeno.encode()).decode("utf-8"),
+                                               f.encrypt(heslo.encode()).decode("utf-8")))
 
     def odkoduj_zaznamy(self):
+        f = Fernet(self.klic)
         for ii in self.tree_zaznamy.get_children():
-            stranka, jmeno, heslo = self.tree_zaznamy.item(ii)["values"]
-            self.tree_zaznamy.item(ii, values=(stranka, jmeno, heslo[:-1]))
+            stranka, jmeno, heslo = self.tree_zaznamy.item(ii, option="values")
+            self.tree_zaznamy.item(ii, values=(f.decrypt(stranka.encode()).decode("utf-8"),
+                                               f.decrypt(jmeno.encode()).decode("utf-8"),
+                                               f.decrypt(heslo.encode()).decode("utf-8")))
 
     def odezamkni_tlacitka(self, state):
         for tlacitko in self.zamikatelna_tlacitka:
             tlacitko.config(state=state)
+
+    def uloz_zaznamy(self):
+        if self.odemceno:
+            self.odezamkni_klicenku()
+        with open(self.zakodovany_soubor, "w") as soubor:
+            for ii in self.tree_zaznamy.get_children():
+                stranka, jmeno, heslo = self.tree_zaznamy.item(ii, option="values")
+                print(stranka,
+                      jmeno,
+                      heslo, file=soubor)
+            self.parent.destroy()
+
+    def nacti_zaznamy(self):
+        try:
+            with open(self.zakodovany_soubor, "r") as soubor:
+                for l in soubor:
+                    self.tree_zaznamy.insert("", "end",
+                                             text=f"{len(self.tree_zaznamy.get_children())}",
+                                             values=(l.split()))
+        except FileNotFoundError:
+            pass
 
 
 if __name__ == '__main__':
