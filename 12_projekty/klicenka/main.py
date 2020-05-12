@@ -128,7 +128,6 @@ class MainWindow(tk.Frame):
 
             self.entry_master_heslo.config(state=DISABLED)
 
-
     def priprav_klic(self):
         psswd = self.master_heslo.get().encode()
         salt = b"/*-*/"
