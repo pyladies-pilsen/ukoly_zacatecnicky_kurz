@@ -7,7 +7,7 @@ from oop_piskvorky_1D import Hra_piskvorek1D
 
 
 # seznam vygenerovaných tlačítek představujících herní pole
-buttons_hraciho_pole = []
+tlacitka_hraciho_pole = []
 # vnitřní reprezentace hry
 piskvorky = Hra_piskvorek1D(10)
 
@@ -23,15 +23,15 @@ def priprava_hraciho_pole():
     piskvorky.nova_hra(velikost_hry_int)
 
     # TODO: ošetřit vhodný rozsah herního pole
-    for button in buttons_hraciho_pole:
+    for button in tlacitka_hraciho_pole:
         button.destroy()
-    buttons_hraciho_pole.clear()
+    tlacitka_hraciho_pole.clear()
 
     generovani_tlacitek_hraciho_pole(velikost_hry_int)
     zprava.set("Klikněte na pole, na které chce hrát.")
 
 
-def generovani_tlacitek_hraciho_pole( velikost_hry_int):
+def generovani_tlacitek_hraciho_pole(velikost_hry_int):
     """
     Dle zadání uživatele v textovém poli, generuje tlačítka představující
     herní pole.
@@ -41,10 +41,10 @@ def generovani_tlacitek_hraciho_pole( velikost_hry_int):
         button_gen = ttk.Button(frame_hraci_pole, text="-", width=2)
         button_gen.configure(command=lambda i=i: obsluha_tahu_hrace(i))
         button_gen.pack(padx=2, pady=50, side=LEFT)
-        buttons_hraciho_pole.append(button_gen)
+        tlacitka_hraciho_pole.append(button_gen)
 
 
-def obsluha_tahu_hrace( pozice):
+def obsluha_tahu_hrace(pozice):
     """
     Obsahuje celý mechanismus hry piskvorek
     """
@@ -61,14 +61,14 @@ def obsluha_tahu_hrace( pozice):
         zprava.set(chyba)
         return
 
-    buttons_hraciho_pole[pozice].config(text="X")
+    tlacitka_hraciho_pole[pozice].config(text="X")
     if piskvorky.vyhodnot() != "-":
         # vysledek vypiseme hned, pozdeji k tomu neni prilezitost
         zprava.set(piskvorky.zpravy[piskvorky.vyhodnot()])
         return
 
 
-    buttons_hraciho_pole[piskvorky.tah_pocitace()].config(text="O")
+    tlacitka_hraciho_pole[piskvorky.tah_pocitace()].config(text="O")
     if piskvorky.vyhodnot() != "-":
         zprava.set(piskvorky.zpravy[piskvorky.vyhodnot()])
 
@@ -88,9 +88,10 @@ frame_hraci_pole.pack()
 
 # tlačíko zahájení nové hry, funkce predana jako argument command
 # je zavolana pri kliknuti na tlacitko
-button = ttk.Button(frame_ovladani, text="Nová spust_hru",
+button = ttk.Button(frame_ovladani, text="Nová hra",
                     command=priprava_hraciho_pole)
 button.pack(side=LEFT, padx=20)
+# root.mainloop()
 
 # popisek pro textového pole
 label = ttk.Label(frame_ovladani, text="Velikost hry")
