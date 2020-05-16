@@ -45,6 +45,8 @@ class Klicenka:
         if not self.odemceno:
             raise IndexError("Klicenka je zamcena, nelze smazat zaznam" +
                              f"{index}")
+        else:
+            self.obsah.pop(index)
 
     def uloz_zaznamy(self):
         if self.odemceno:
@@ -156,7 +158,7 @@ class KlicenkaGUI(tk.Frame):
         self.pridej_button = ttk.Button(self.frame_zaznam,
                                         text="Přidat",
                                         state=DISABLED,
-                                        command=self.on_pridej_zaznam,
+                                        command=self.on_pridej,
                                         )
         self.pridej_button.pack(side=LEFT)
 
@@ -176,14 +178,14 @@ class KlicenkaGUI(tk.Frame):
         self.tree_zaznamy.pack()
 
         # Mazani zaznamu
-        # self.frame_seznam_tlacitka = tk.Frame()
-        # self.frame_seznam_tlacitka.pack()
-        # self.smaz_button = ttk.Button(self.frame_seznam_tlacitka,
-        #                               text="Smazat záznam",
-        #                               state=DISABLED,
-        #                               command=self.smaz_zaznam)
-        # self.zamikatelna_tlacitka.append(self.smaz_button)
-        # self.smaz_button.pack()
+        self.frame_seznam_tlacitka = tk.Frame()
+        self.frame_seznam_tlacitka.pack()
+        self.smaz_button = ttk.Button(self.frame_seznam_tlacitka,
+                                      text="Smazat záznam",
+                                      state=DISABLED,
+                                      command=self.on_smaz)
+        self.zamikatelna_tlacitka.append(self.smaz_button)
+        self.smaz_button.pack()
 
     def odezamkni_klicenku(self):
         if self.klicenka.odemceno:
@@ -193,7 +195,8 @@ class KlicenkaGUI(tk.Frame):
             self.synchronizuj()
             self.unlock_button.config(text="Odemknout")
             self.pridej_button.config(state=DISABLED)
-
+            self.smaz_button.config(state=DISABLED)
+            self.entry_master_heslo.config(state=NORMAL)
         else:
             # odemkni
             self.klicenka.odemkni(self.master_heslo.get())
@@ -201,6 +204,8 @@ class KlicenkaGUI(tk.Frame):
                 self.synchronizuj()
                 self.unlock_button.config(text="Zamknout")
                 self.pridej_button.config(state=NORMAL)
+                self.smaz_button.config(state=NORMAL)
+                self.entry_master_heslo.config(state=DISABLED)
 
     def synchronizuj(self):
 
@@ -214,14 +219,25 @@ class KlicenkaGUI(tk.Frame):
                                          zaznam["jmeno"],
                                          zaznam["heslo"]))
 
-    def on_pridej_zaznam(self):
-        self.klicenka.pridej_zaznam((self.stranka.get(),
-                                     self.jmeno.get(),
-                                     self.heslo.get()))
+    def on_pridej(self):
+        zaznam = (self.stranka.get(),
+                  self.jmeno.get(),
+                  self.heslo.get())
+
+        if sum(len(z) for z in zaznam) == 0:
+            return
+
+        self.klicenka.pridej_zaznam(zaznam)
         self.stranka.set("")
         self.jmeno.set("")
         self.heslo.set("")
         self.synchronizuj()
+
+    def on_smaz(self):
+        if self.tree_zaznamy.focus():
+            index = int(self.tree_zaznamy.item(self.tree_zaznamy.focus())["text"])
+            self.klicenka.smaz_zaznam(index)
+            self.synchronizuj()
 
     def on_close(self):
         self.klicenka.uloz_zaznamy()
