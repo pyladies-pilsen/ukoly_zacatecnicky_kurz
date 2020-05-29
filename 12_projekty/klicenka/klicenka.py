@@ -15,11 +15,11 @@ class Klicenka:
     tajny_soubor = "super_secure.tjn"
 
     def __init__(self):
-        self.obsah = []
+        self.zaznamy = []
         self.nacti_zaznamy()
         self.odemceno = False
 
-    def odemkni(self, heslo):
+    def odemknout(self, heslo):
         self.klic = self._priprav_klic(heslo)
         try:
             self._odkoduj_zaznamy()
@@ -28,7 +28,7 @@ class Klicenka:
         self.odemceno = True
         return True
 
-    def zamkni(self):
+    def zamknout(self):
         self._zakoduj_zaznamy()
         self.odemceno = False
         self.klic = ""
@@ -37,27 +37,22 @@ class Klicenka:
         if not self.odemceno:
             raise IndexError("Klicenka je zamcena, nelze pridat zaznam" +
                              f"{zaznam}")
-        self.obsah.append({"stranka": zaznam[0],
-                           "jmeno": zaznam[1],
-                           "heslo": zaznam[2]})
+        self.zaznamy.append(zaznam)
 
     def smaz_zaznam(self, index):
         if not self.odemceno:
             raise IndexError("Klicenka je zamcena, nelze smazat zaznam" +
                              f"{index}")
         else:
-            self.obsah.pop(index)
+            self.zaznamy.pop(index)
 
     def uloz_zaznamy(self):
         if self.odemceno:
             self._zakoduj_zaznamy()
 
         with open(self.tajny_soubor, "w", encoding="utf-8") as soubor:
-            for zaznam in self.obsah:
-                stranka, jmeno, heslo = zaznam.values()
-                print(stranka,
-                      jmeno,
-                      heslo, file=soubor)
+            for stranka, jmeno, heslo in self.zaznamy:
+                print(stranka, jmeno,heslo, file=soubor)
 
         if self.odemceno:
             self._odkoduj_zaznamy()
@@ -67,25 +62,30 @@ class Klicenka:
             with open(self.tajny_soubor, "r", encoding="utf-8") as soubor:
                 for l in soubor:
                     zaznam = l.split()
-                    self.obsah.append({"stranka": zaznam[0],
-                                       "jmeno": zaznam[1],
-                                       "heslo": zaznam[2]})
+                    self.zaznamy.append(zaznam)
         except FileNotFoundError:
             pass
 
     def _zakoduj_zaznamy(self):
         f = Fernet(self.klic)
-        for zaznam in self.obsah:
-            zaznam["stranka"] = f.encrypt(zaznam["stranka"].encode()).decode("utf-8")
-            zaznam["jmeno"] = f.encrypt(zaznam["jmeno"].encode()).decode("utf-8")
-            zaznam["heslo"] = f.encrypt(zaznam["heslo"].encode()).decode("utf-8")
+        zasifrovane_zaznamy = []
+        for stranka, jmeno, heslo in self.zaznamy:
+            zasifrovany_zaznam = (f.encrypt(stranka.encode()).decode("utf-8"),
+                                  f.encrypt(jmeno.encode()).decode("utf-8"),
+                                  f.encrypt(heslo.encode()).decode("utf-8"))
+            zasifrovane_zaznamy.append(zasifrovany_zaznam)
+
+        self.zaznamy = zasifrovane_zaznamy
 
     def _odkoduj_zaznamy(self):
         f = Fernet(self.klic)
-        for zaznam in self.obsah:
-            zaznam["stranka"] = f.decrypt(zaznam["stranka"].encode()).decode("utf-8")
-            zaznam["jmeno"] = f.decrypt(zaznam["jmeno"].encode()).decode("utf-8")
-            zaznam["heslo"] = f.decrypt(zaznam["heslo"].encode()).decode("utf-8")
+        ozaznamy = []
+        for stranka, jmeno, heslo in self.zaznamy:
+            zaznam = (f.decrypt(stranka.encode()).decode("utf-8"),
+                      f.decrypt(jmeno.encode()).decode("utf-8"),
+                      f.decrypt(heslo.encode()).decode("utf-8"))
+            ozaznamy.append(zaznam)
+        self.zaznamy = ozaznamy
 
     def _priprav_klic(self, heslo):
         salt = b"/*-*/"
@@ -108,12 +108,11 @@ class KlicenkaGUI(tk.Frame):
         self.parent.title("Moje klíčenka")
 
         self.entry_width = 30
-        self.zamikatelna_tlacitka = []
 
         self.parent.protocol("WM_DELETE_WINDOW", self.on_close)
         self.create_widgets()
 
-        self.synchronizuj()
+        self.zobraz()
 
     def create_widgets(self):
         self.label_jmeno = tk.Label(text="Zadejte hlavní heslo (klíč)",
@@ -184,40 +183,37 @@ class KlicenkaGUI(tk.Frame):
                                       text="Smazat záznam",
                                       state=DISABLED,
                                       command=self.on_smaz)
-        self.zamikatelna_tlacitka.append(self.smaz_button)
         self.smaz_button.pack()
 
     def odezamkni_klicenku(self):
         if self.klicenka.odemceno:
-            # zamkni
-            self.klicenka.zamkni()
+            # zamknout
+            self.klicenka.zamknout()
             self.master_heslo.set("")
-            self.synchronizuj()
+            self.zobraz()
             self.unlock_button.config(text="Odemknout")
             self.pridej_button.config(state=DISABLED)
             self.smaz_button.config(state=DISABLED)
             self.entry_master_heslo.config(state=NORMAL)
         else:
-            # odemkni
-            self.klicenka.odemkni(self.master_heslo.get())
+            # odemknout
+            self.klicenka.odemknout(self.master_heslo.get())
             if self.klicenka.odemceno:
-                self.synchronizuj()
+                self.zobraz()
                 self.unlock_button.config(text="Zamknout")
                 self.pridej_button.config(state=NORMAL)
                 self.smaz_button.config(state=NORMAL)
                 self.entry_master_heslo.config(state=DISABLED)
 
-    def synchronizuj(self):
+    def zobraz(self):
 
         for ii in self.tree_zaznamy.get_children():
             self.tree_zaznamy.delete(ii)
 
-        for zaznam in self.klicenka.obsah:
+        for zaznam in self.klicenka.zaznamy:
             self.tree_zaznamy.insert("", "end",
                                  text=f"{len(self.tree_zaznamy.get_children())}",
-                                 values=(zaznam["stranka"],
-                                         zaznam["jmeno"],
-                                         zaznam["heslo"]))
+                                 values=zaznam)
 
     def on_pridej(self):
         zaznam = (self.stranka.get(),
@@ -231,13 +227,13 @@ class KlicenkaGUI(tk.Frame):
         self.stranka.set("")
         self.jmeno.set("")
         self.heslo.set("")
-        self.synchronizuj()
+        self.zobraz()
 
     def on_smaz(self):
         if self.tree_zaznamy.focus():
             index = int(self.tree_zaznamy.item(self.tree_zaznamy.focus())["text"])
             self.klicenka.smaz_zaznam(index)
-            self.synchronizuj()
+            self.zobraz()
 
     def on_close(self):
         self.klicenka.uloz_zaznamy()
