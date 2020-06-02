@@ -52,7 +52,7 @@ class Klicenka:
 
         with open(self.tajny_soubor, "w", encoding="utf-8") as soubor:
             for stranka, jmeno, heslo in self.zaznamy:
-                print(stranka, jmeno,heslo, file=soubor)
+                print(stranka, jmeno, heslo, file=soubor)
 
         if self.odemceno:
             self._odkoduj_zaznamy()
@@ -85,6 +85,7 @@ class Klicenka:
                       f.decrypt(jmeno.encode()).decode("utf-8"),
                       f.decrypt(heslo.encode()).decode("utf-8"))
             ozaznamy.append(zaznam)
+
         self.zaznamy = ozaznamy
 
     def _priprav_klic(self, heslo):
@@ -128,11 +129,11 @@ class KlicenkaGUI(tk.Frame):
         self.entry_master_heslo = ttk.Entry(self.frame_ovladani,
                                             width=self.entry_width,
                                             textvariable=self.master_heslo)
-        self.unlock_button = ttk.Button(self.frame_ovladani,
-                                        text="Odemknout",
-                                        command=self.odezamkni_klicenku)
+        self.odezamkni_button = ttk.Button(self.frame_ovladani,
+                                           text="Odemknout",
+                                           command=self.odezamkni_klicenku)
         self.entry_master_heslo.pack(side=LEFT)
-        self.unlock_button.pack(side=LEFT)
+        self.odezamkni_button.pack(side=LEFT)
 
         # Pridavani zaznamu
         self.frame_zaznam = tk.Frame()
@@ -165,15 +166,15 @@ class KlicenkaGUI(tk.Frame):
         self.frame_seznam = tk.Frame()
         self.frame_seznam.pack()
         self.tree_zaznamy = ttk.Treeview(self.frame_seznam,
-                                         columns=("Stránka", "Jméno", "Heslo"))
+                                         columns=("stranka", "jmeno", "heslo"))
         self.tree_zaznamy.heading("#0", text="#")
         self.tree_zaznamy.column("#0", minwidth=0, width=30, stretch=NO)
-        self.tree_zaznamy.heading("Stránka", text="Stránka")
-        self.tree_zaznamy.column("Stránka", minwidth=0, width=200, stretch=NO)
-        self.tree_zaznamy.heading("Jméno", text="Jméno")
-        self.tree_zaznamy.column("Jméno", minwidth=0, width=300)
-        self.tree_zaznamy.heading("Heslo", text="Heslo")
-        self.tree_zaznamy.column("Heslo", minwidth=0, width=300)
+        self.tree_zaznamy.heading("stranka", text="Stránka")
+        self.tree_zaznamy.column("stranka", minwidth=0, width=200, stretch=NO)
+        self.tree_zaznamy.heading("jmeno", text="Jméno")
+        self.tree_zaznamy.column("jmeno", minwidth=0, width=300)
+        self.tree_zaznamy.heading("heslo", text="Heslo")
+        self.tree_zaznamy.column("heslo", minwidth=0, width=300)
         self.tree_zaznamy.pack()
 
         # Mazani zaznamu
@@ -191,19 +192,22 @@ class KlicenkaGUI(tk.Frame):
             self.klicenka.zamknout()
             self.master_heslo.set("")
             self.zobraz()
-            self.unlock_button.config(text="Odemknout")
+            self.odezamkni_button.config(text="Odemknout")
             self.pridej_button.config(state=DISABLED)
             self.smaz_button.config(state=DISABLED)
             self.entry_master_heslo.config(state=NORMAL)
-        else:
-            # odemknout
+        else: # je zamceno
+            if self.master_heslo.get() == "":
+                return
+
             self.klicenka.odemknout(self.master_heslo.get())
             if self.klicenka.odemceno:
-                self.zobraz()
-                self.unlock_button.config(text="Zamknout")
+                self.odezamkni_button.config(text="Zamknout")
                 self.pridej_button.config(state=NORMAL)
                 self.smaz_button.config(state=NORMAL)
                 self.entry_master_heslo.config(state=DISABLED)
+                self.zobraz()
+
 
     def zobraz(self):
 
