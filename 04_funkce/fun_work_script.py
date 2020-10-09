@@ -4,7 +4,10 @@
 #################################
 #          Základy              #
 #################################
-# S funkcemi už jsme se setkali, třeba:
+# funkce ~ metody ~ procedury ~ podprogramy
+
+
+# S podprogramy už jsme se setkali, třeba:
 
 # ┌ jméno funkce/podprogramu
 # |          ┌ argument/parametr předaný podprogramu/funkci
@@ -46,6 +49,9 @@ print
 #################################
 #          Vracení              #
 #################################
+cislo = int("10")
+
+
 # ┌ návratová hodnota
 vysledek = print(1 + 2)
 
@@ -117,7 +123,7 @@ def nakresli_trojuhelnik(strana):
     turtle.forward(strana)
     turtle.left(120)
 
-# nakresli_trojuhelnik(50)
+nakresli_trojuhelnik(50)
 
 # 2. Cvičení
 # 2.a Napiste podprogram muj_print3, který bude umět vytisknout tři řetězce.
@@ -142,7 +148,7 @@ def nakresli_trojuhelnik(strana):
 def secti(cislo1, cislo2):
     vysledek = cislo1 + cislo2
 #      └ Uvnitř podprogramu můžeme libovolně vytvářet proměnné,
-#        ty jsou zcela oddělené od ostatních proměnných mimo podrpogram.
+#        ty jsou zcela oddělené od ostatních proměnných mimo podprogram.
     return vysledek
 
 vysledek_secti = secti(1, 2)

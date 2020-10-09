@@ -30,8 +30,10 @@ while True:
 print("Konec")
 
 # while True: ... je nekonečný cyklus
-while True:
-    print("Nikdy neodstoupí, nikdy!")
+# while True:
+#     print("Nikdy neodstoupí, nikdy!")
 
 
+# 0. cvičení
+# Pomocí cyklu while vypište čísla od 0 do 10.
 
