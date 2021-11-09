@@ -46,7 +46,7 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
 
 
 4. Funkce
-    Ke každé funkci napiš i krátký program, který ji použije a výsledek vypíše.
+    Ke každé funkci napiš i krátký program, který ji použije a výsledeky pro kontrolu vypíše.
 
     Z1 Napiš funkci, která dostane jako argumenty dvě čísla, která sečte,
     a výsledek VYPÍŠE.
@@ -64,7 +64,7 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
          └ └
 
     P1 Napiš funkci, která bude mít jako argumenty dvě čísla `z` a `e` a vrátí
-    `z` umocněno na `e`, `e` musí být celé kladné číslo. Nepoužij operátor `**`
+    `z` umocněno na `e`, `e` bude celé kladné číslo. Nepoužij operátor `**`
     ale for cyklus.
 
     P1* Doplň funkci o kontrolu jesli je `e` celé kladné číslo,
@@ -79,7 +79,6 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
 
 5. Řetězce
     Ke každé funkci napiš i krátký program, který ji použije a výsledek vypíše.
-
 
     Z1 Napiš program, který se zeptá uživatele na řetězec znaků a vymění v něm
     všechna písmena "s" za "f".
@@ -115,7 +114,8 @@ Příklady Z? zkus všechny, příklady P? plň dokud si budeš vědět rady :-)
     a zapíše výsledek zpět od souboru. Pokud soubor žádné ";" neobsahuje,
     program to oznámí a se souborem nic neudělá.
 
-    P2 Zkopíruj si dvounohý čtverec z úkolu 4Z3 a vypiš stonožu do souboru.  ┌ ┌
+
+    A tady je druhý konec stonožky.                                          ┌ ┌
                                                                              | |
          ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐ ┌---┐
     ... -|   |-|   |-|   |-|   |-|   |-|   |-|   |-|   |-|   |-|   |-|   |-|O O|

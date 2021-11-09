@@ -61,7 +61,7 @@ for i in range(20):
 #     Z2 Napiš program, který bude neustále vypipsovat "... a dál?".
 
 """
-# zakomentováno aby se dal program spustit a šli vyzkoušet i ostatní úkoly
+# zakomentováno aby se program nezacyklil a šli vyzkoušet i ostatní úkoly
 while True:
     print("... a dál?")
 """
